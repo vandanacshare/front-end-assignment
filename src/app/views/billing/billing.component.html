@@ -1,0 +1,72 @@
+<main role="main" class="main-panel">
+    <div class="content">
+        <div class="row" style="width:100%"> 
+              <div class="col-md-12 card" style="padding:10px;">
+                <div class="col-md-12" style="padding:10px; border: 1px solid #ddd; margin: 50px 0;"> 
+                <mat-tab-group > 
+<mat-tab label="Failed Billing Lines" style="background-color: #187da0 !important;">
+  <table class="table table-striped">
+      <thead style="background-color: #63c2de !important;">
+          <tr>
+              <th scope="col" style="color:#fff !important;"> Contract No</th>
+              <th scope="col" style="color:#fff !important;"> Project No </th>
+              <th scope="col" style="color:#fff !important;"> Task No</th>
+              <th scope="col" style="color:#fff !important;"> Status </th>
+              <th scope="col" style="color:#fff !important;"> Location Id </th>
+              <th scope="col" style="color:#fff !important;"> Post Id </th>
+              <th scope="col" style="color:#fff !important;"> Invalid Count </th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr  *ngFor="let billing of resultData['failed billing lines']">
+
+              <td *ngFor="let bill of billing; let idx=index">
+                {{bill}}
+              </td>                               
+              <td>
+                  <mat-icon class="cursorBlue" >list_all
+                  </mat-icon>
+              </td>
+                               
+          </tr>
+      </tbody>
+  </table>
+</mat-tab>        
+<mat-tab label="Billing still exists">
+<table class="table table-striped">
+      <thead style="background-color: #63c2de !important;">
+          <tr>
+              <th scope="col" style="color:#fff !important;"> Assignment Id </th>
+              <th scope="col" style="color:#fff !important;"> Presence Id </th>
+              <th scope="col" style="color:#fff !important;"> Schedule Start Date/Time</th>
+              <th scope="col" style="color:#fff !important;"> Schedule End Date/Time </th>
+              <th scope="col" style="color:#fff !important;"> Post Id </th>
+              <th scope="col" style="color:#fff !important;"> Rate Card Id </th>
+              <th></th> 
+          </tr>
+      </thead>
+      <tbody>
+          <tr  *ngFor="let billing of resultData['Billing still exists']">
+
+              <td *ngFor="let bill of billing; let idx=index">
+                {{bill}}
+              </td>                               
+              <td>
+                  <mat-icon class="cursorBlue" >list_all
+                  </mat-icon>
+              </td>
+                               
+          </tr>
+      </tbody>
+  </table>
+</mat-tab>           
+</mat-tab-group>
+
+                    
+                </div>
+              </div>
+        </div>
+    </div>
+
+</main>

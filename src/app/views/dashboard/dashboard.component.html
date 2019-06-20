@@ -1,0 +1,95 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-primary">
+        <div class="card-body pb-0">
+          <div class="btn-group float-right">
+            <div> 09/06/17  10:53 AM</div>
+          </div>
+          <div class="text-value">Payroll</div>
+          <hr style="margin-bottom: 0px;">
+          <br>
+          <div >
+              <span style="display:inline;"> Missing PayGroup </span>
+              <span style="display:inline; margin-left: 48px;"> {{resultData['Missing PayGroup'].length}}</span>
+              <span style="display:inline; margin-left: 51px;"> <img src="assets/img/green-icon.png"> </span>
+          </div>
+          <br>
+          <div>
+              <span style="display:inline;"> Missing Salary History </span>
+              <span style="display:inline; margin-left: 29px;"> {{resultData['Missing Salary History'].length}}</span>
+              <span style="display:inline; margin-left: 55px;"> <img src="assets/img/red-icon.png" class="heart"> </span>
+          </div>
+        </div>
+        <hr style="margin-bottom: 0px;">
+        <div class="chart-wrapper mt-3 mx-3" style="height: 28px;background-color: red;margin-bottom: 15px;text-align: center;">
+          <div> <a href="" routerLink="/app-payroll" style="color: #fff;"> Full Report</a> </div>
+          <!-- Full Report-->
+          <!--
+          <div class="btn-group float-right">
+              <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-settings"></i> 
+              </button>
+              
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div> 
+          </div> -->
+        </div> 
+      </div>
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-primary" style="width:100%;">
+        <div class="card-body pb-0">
+          <div class="btn-group float-right">
+            <div> 09/06/17  10:53 AM</div>
+          </div>
+          <div class="text-value">Billing</div>
+          <hr style="margin-bottom: 0px;">
+          <br>
+          <div >
+              <span style="display:inline;"> Missing generated billing lines </span>
+              <span style="display:inline; margin-left: 17px;">  {{resultData1['missing generated billing lines'].length}} </span>
+              <span style="display:inline; margin-left: 18px;"> <img src="assets/img/red-icon.png" class="heart"> </span>
+          </div>
+          <br>
+          <div>
+              <span style="display:inline;"> Failed billing lines </span>
+              <span style="display:inline; margin-left: 90px;"> {{resultData1['failed billing lines'].length}} </span>
+              <span style="display:inline; margin-left: 14px;"> <img src="assets/img/red-icon.png" class="heart"> </span>
+          </div>
+          <br>
+          <div >
+              <span style="display:inline;"> Billing still exists </span>
+              <span style="display:inline; margin-left: 101px;"> {{resultData1['Billing still exists'].length}} </span>
+              <span style="display:inline; margin-left: 19px;"> <img src="assets/img/green-icon.png"> </span>
+          </div>
+          <div >
+            <span style="display:inline;"> Wrong billing line generated </span>
+            <span style="display:inline; margin-left: 25px;"> {{resultData1['wrong billing line generated'].length}} </span>
+            <span style="display:inline; margin-left: 17px;"> <img src="assets/img/green-icon.png"> </span>
+        </div>
+        </div>
+        <hr style="margin-bottom: 0px;">
+        <div class="chart-wrapper mt-3 mx-3" style="height: 28px;background-color: red;margin-bottom: 15px;text-align: center;">
+          <div> <a href="" routerLink="/app-billing" style="color: #fff;"> Full Report</a> </div>
+          <!--
+          <div class="btn-group float-right">
+              <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-settings"></i> 
+              </button>
+              
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div> 
+          </div> -->
+        </div> 
+      </div>
+    </div>
+  
+  </div><!--/.row-->
+</div>
