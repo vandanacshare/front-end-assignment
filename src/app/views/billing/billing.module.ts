@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BillingRoutes } from './billing.routing';
 import { BillingComponent } from './billing.component';
+import { BillingService } from './billing.services';
 //import { SidebarModule} from '../../layouts/sidebar/sidebar.module';
 //import { ToolbarModule} from '../../layouts/toolbar/toolbar.module';
 
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     //, ToolbarModule
     , HttpClientModule
   ],
-  declarations: [BillingComponent]
+  declarations: [BillingComponent],
+  providers: [BillingService]
 })
 export class BillingModule { }

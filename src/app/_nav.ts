@@ -81,8 +81,9 @@ export const navItems: NavData[] = [
   },
   {
     name: 'Infra',
-    url: '/app-billing',
+    url: 'https://app.google.stackdriver.com/?project=gdc-javelin-v2-uat',
     icon: 'icon-calculator',
+    attributes: { target: '_blank' }
   }
 
 

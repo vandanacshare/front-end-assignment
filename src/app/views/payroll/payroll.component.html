@@ -58,7 +58,39 @@
           </tr>
       </tbody>
   </table>
-</mat-tab>           
+</mat-tab>          
+<mat-tab label="Duplicate Rate Card">
+        <table class="table table-striped">
+              <thead style="background-color: #63c2de !important;">
+                  <tr>
+                      <th scope="col" style="color:#fff !important;"> ID </th>
+                      <th scope="col" style="color:#fff !important;"> Rate Card ID </th>
+                      <th scope="col" style="color:#fff !important;"> Amend No </th>
+                      <th scope="col" style="color:#fff !important;"> With Effect From Date </th>
+                      <th scope="col" style="color:#fff !important;"> With Effect To Date </th>
+                      <th scope="col" style="color:#fff !important;"> RateCard Creation Date </th>
+                      <th scope="col" style="color:#fff !important;"> RateCard Modify Date </th>
+                      <th scope="col" style="color:#fff !important;"> Created Date </th>
+                      <th scope="col" style="color:#fff !important;"> Modified Date </th>
+                      <th scope="col" style="color:#fff !important;"> Status </th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr  *ngFor="let payroll of resultData['Duplicate Rate Card']">
+        
+                      <td *ngFor="let pay of payroll; let idx=index">
+                        {{pay}}
+                      </td>                               
+                      <td>
+                          <mat-icon class="cursorBlue" >list_all
+                          </mat-icon>
+                      </td>
+                                       
+                  </tr>
+              </tbody>
+          </table>
+        </mat-tab>           
 </mat-tab-group>
 
                     

@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { PayrollRoutes } from './payroll.routing';
-import { PayrollComponent } from './payroll.component';
-import { PayrollService } from './payroll.services';
+import { DashboardComponent } from '../../../app/views/dashboard/dashboard.component';
+import { DefaultLayoutComponent } from './default-layout.component';
 
 import { MatCardModule, MatInputModule,MatSelectModule ,MatButtonModule,MatAutocompleteModule,MatIconModule, MatTabsModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -13,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule
-    , PayrollRoutes
     , MatCardModule
     , MatInputModule
     , MatSelectModule
@@ -23,11 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
     , MatIconModule
     , MatButtonModule
     , MatTabsModule
-    //, SidebarModule
-    //, ToolbarModule
+    , DashboardComponent
     , HttpClientModule
   ],
-  declarations: [PayrollComponent]
-  ,providers: [PayrollService]
+  declarations: [DefaultLayoutComponent],
+  providers: []
 })
-export class PayrollModule { }
+export class BillingModule { }

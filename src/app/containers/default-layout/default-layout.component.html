@@ -9,6 +9,16 @@
     <li class="nav-item px-3">
       <a class="nav-link" href="#">Dashboard</a>
     </li>
+    <li class="nav-item px-3">
+      <select> 
+        <option val="uk"> UK </option>
+        <option val="ireland"> Ireland </option>
+        <option val="north-america"> North America </option>
+      </select>
+    </li>
+    <li class="nav-item px-3">
+      <input type="button" value="GO" />
+    </li>
     <!-- 
     <li class="nav-item px-3">
       <a class="nav-link" href="#">Users</a>
@@ -61,14 +71,15 @@
     <!-- breaking change 'cui-breadcrumb' -->
     <cui-breadcrumb>
       <!-- Breadcrumb Menu-->
-      <!--
+      
       <li class="breadcrumb-menu d-md-down-none">
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-          <a class="btn" href="#"><i class="icon-speech"></i></a>
-          <a class="btn" [routerLink]="['/dashboard']"><i class="icon-graph"></i> &nbsp;Dashboard</a>
-          <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>
+         
+          <button class="btn" (click)="onRefresh()"><i class="icon-refresh"></i> Refresh </button>
+          
+
         </div>
-      </li> -->
+      </li> 
     </cui-breadcrumb>
 
     <div class="container-fluid">

@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
+import {PayrollService} from './payroll.services';
 
 @Component({
   selector: 'app-payroll',
@@ -14,7 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class PayrollComponent implements OnInit {
 
   public resultData;
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient, private payrollService: PayrollService) { }
 
   
   ngOnInit() : void{
@@ -23,15 +24,13 @@ export class PayrollComponent implements OnInit {
 
   get_products(): void {
   
-      this.http.get('assets/payroll.json').subscribe(
-      data => {
-         this.resultData = data;	 // FILL THE ARRAY WITH DATA.
-         //  console.log(this.arrBirds[1]);
-       },
-       (err: HttpErrorResponse) => {
-        console.log (err.message);
-       }
-     );
+    this.payrollService.getPayrollList().subscribe((data) => {
+      if (data) {
+        this.resultData = data;
+      }
+    },
+      error => console.log('oops', error)
+    );
 
     }
 

@@ -4,6 +4,9 @@ import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
+import {BillingService} from '../billing/billing.services';
+import { PayrollService} from '../payroll/payroll.services';
+import { SharedService } from '../../shared.service';
 
 @Component({
   templateUrl: 'dashboard.component.html',
@@ -14,7 +17,9 @@ export class DashboardComponent implements OnInit {
   radioModel: string = 'Month';
   public resultData;
   public resultData1;
-  constructor( private http: HttpClient) { }
+  private loading: boolean;
+
+  constructor( private http: HttpClient,  private billingService: BillingService, private payrollService: PayrollService, private sharedService: SharedService) { }
 
   // lineChart1
   public lineChart1Data: Array<any> = [
@@ -385,40 +390,48 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sharedService.getRefreshInvokeEmitter().subscribe((data) => {
+      this.loading=true;
+
+      this.get_payroll_products(); 
+      this.get_bill_products(); 
+    });
+
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));
       this.mainChartData3.push(65);
 
-      this.get_products(); 
-      this.get_bill_products(); 
     }
-  }
-
-  get_products(): void {
-  
-    this.http.get('assets/payroll.json').subscribe(
-    data => {
-       this.resultData = data;	 // FILL THE ARRAY WITH DATA.
-     },
-     (err: HttpErrorResponse) => {
-      console.log (err.message);
-     }
-   );
-
+    this.loading=true;
+    this.get_payroll_products(); 
+    this.get_bill_products(); 
   }
 
   get_bill_products(): void {
   
-    this.http.get('assets/billing.json').subscribe(
-    data => {
-       this.resultData1 = data;	 // FILL THE ARRAY WITH DATA.
-     },
-     (err: HttpErrorResponse) => {
-      console.log (err.message);
-     }
-   );
+    this.billingService.getBillingList().subscribe((data) => {
+      if (data) {
+        this.resultData1 = data;
+      }
+      this.loading=false;
 
+    },
+      error => console.log('oops', error)
+    );
+  }
+
+  get_payroll_products(): void {
+  
+    this.payrollService.getPayrollList().subscribe((data) => {
+
+      //console.log("payroll data== "+JSON.stringify(data));
+      if (data) {
+        this.resultData = data;
+      }
+    },
+      error => console.log('oops', error)
+    );
   }
 }

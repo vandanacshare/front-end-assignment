@@ -18,7 +18,7 @@
               <th></th>
           </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="resultData">
           <tr  *ngFor="let billing of resultData['failed billing lines']">
 
               <td *ngFor="let bill of billing; let idx=index">
@@ -46,7 +46,7 @@
               <th></th> 
           </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="resultData">
           <tr  *ngFor="let billing of resultData['Billing still exists']">
 
               <td *ngFor="let bill of billing; let idx=index">
