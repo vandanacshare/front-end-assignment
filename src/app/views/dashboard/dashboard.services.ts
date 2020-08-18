@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 import { environment } from './../../../environments/environment';
 
 @Injectable()
-export class BillingService {
+export class DashboardService {
 
  constructor(private httpClient: HttpClient) { }
 
- public getBillingList(): Observable<any> {
-   return this.httpClient.get<any>(`${environment.HEALTH_BACKEND_URL}javelinHealthApi/payroll?functionalArea=Billing`);
+ public getCardList(filters: string): Observable<any> {
+   return this.httpClient.get<any>(`${environment.BACKEND_URL}v3/launches?${filters}`);
  }
 }

@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false
-  ,HEALTH_BACKEND_URL: 'https://health-backend.javelin.g4s.com/'
+  ,BACKEND_URL: 'https://api.spacexdata.com/'
 };

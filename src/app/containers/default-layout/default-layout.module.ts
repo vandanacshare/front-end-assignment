@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from '../../../app/views/dashboard/dashboard.component';
+//import { DashboardComponent } from '../../../app/views/dashboard/dashboard.component';
 import { DefaultLayoutComponent } from './default-layout.component';
 
 import { MatCardModule, MatInputModule,MatSelectModule ,MatButtonModule,MatAutocompleteModule,MatIconModule, MatTabsModule} from '@angular/material';
@@ -20,10 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
     , MatIconModule
     , MatButtonModule
     , MatTabsModule
-    , DashboardComponent
+    //, DashboardComponent
     , HttpClientModule
   ],
   declarations: [DefaultLayoutComponent],
   providers: []
 })
-export class BillingModule { }
+export class DefaultLayoutModule { }

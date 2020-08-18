@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ChartsModule } from 'ng2-charts';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { BillingService } from '../billing/billing.services';
-import { PayrollService } from '../payroll/payroll.services';
+import { DashboardService } from './dashboard.services';
 import { CommonModule } from '@angular/common';
+import { MatCardModule, MatInputModule,MatSelectModule ,MatButtonModule,MatAutocompleteModule,
+  MatIconModule, MatTabsModule} from '@angular/material';
 
 @NgModule({
   imports: [
-    FormsModule,
     DashboardRoutingModule,
-    ChartsModule,
-    BsDropdownModule,
     HttpClientModule,
-    CommonModule,
-    ButtonsModule.forRoot()
+    CommonModule
+    , MatCardModule
+    , MatInputModule
+    , MatSelectModule
+    , MatAutocompleteModule
+    , MatIconModule
+    , MatButtonModule
+    , MatTabsModule
   ],
   declarations: [ DashboardComponent ],
-  providers: [BillingService,PayrollService]
+  providers: [DashboardService]
 })
 export class DashboardModule { }

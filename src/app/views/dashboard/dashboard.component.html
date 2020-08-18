@@ -1,204 +1,77 @@
 <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
 <div class="animated fadeIn">
+  
   <div class="row">
 
     <!--/.col-->
-    <div class="col-sm-6 col-lg-4" >
-      <div class="card text-white bg-primary" style="width:100%;">
-        <div class="card-body pb-0" style="height:228px;">
-          <div class="btn-group float-right">
-            <div> 09/06/17  10:53 AM</div>
-          </div>
-          <div class="text-value">Billing</div>
-          <hr style="margin-bottom: 0px;">
-          <br>
-          <div class="row">
-              <span class="col-md-8"> Missing generated billing lines </span>
-              <span class="col-md-2">  {{(resultData1 && resultData1['missing generated billing lines']) ? resultData1['missing generated billing lines'].length : ''}} </span>
-         
-              <span class="col-md-2" *ngIf="(resultData1 && resultData1['missing generated billing lines'] && resultData1['missing generated billing lines'].length)"> 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData1 && resultData1['missing generated billing lines'] && resultData1['missing generated billing lines'].length)" > 
-                <img src="assets/img/green-icon.png"> </span>
-          </div>
-  
-          <div class="row">
-              <span class="col-md-8"> Failed billing lines </span>
-              <span class="col-md-2"> {{(resultData1 && resultData1['failed billing lines']) ? resultData1['failed billing lines'].length : ''}} </span>
-              <span class="col-md-2" *ngIf="(resultData1 && resultData1['failed billing lines'] && resultData1['failed billing lines'].length)"> 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData1 && resultData1['failed billing lines'] && resultData1['failed billing lines'].length)"> 
-              <img src="assets/img/green-icon.png"> </span>
-          </div>
-       
-          <div class="row">
-              <span class="col-md-8"> Billing still exists </span>
-              <span class="col-md-2"> {{(resultData1 && resultData1['Billing still exists']) ? resultData1['Billing still exists'].length : ''}} </span>
-              <span class="col-md-2" *ngIf="(resultData1 && resultData1['Billing still exists'] && resultData1['Billing still exists'].length)"> 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData1 && resultData1['Billing still exists'] && resultData1['Billing still exists'].length)"> 
-              <img src="assets/img/green-icon.png"> </span>
-              
-          </div>
-          <div class="row">
-            <span class="col-md-8"> Wrong billing line generated </span>
-            <span class="col-md-2"> {{(resultData1 && resultData1['wrong billing line generated']) ? resultData1['wrong billing line generated'].length : ''}} </span>
-            <span class="col-md-2" *ngIf="(resultData1 && resultData1['wrong billing line generated'] && resultData1['wrong billing line generated'].length)" > 
-              <img src="assets/img/red-icon.png" class="heart">
-            </span>
-            <span class="col-md-2" *ngIf="!(resultData1 && resultData1['wrong billing line generated'] && resultData1['wrong billing line generated'].length)"> 
-            <img src="assets/img/green-icon.png"> </span>
+    <mat-card class="col-md-2"> 
+      <p> Launch Year </p> <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <button mat-raised-button color="warn" (click)="applyYearFilter(2006)"> 2006 </button>
         </div>
-        </div>
-        <hr style="margin-bottom: 0px;">
-        <div class="chart-wrapper mt-3 mx-3" style="height: 28px;background-color: red;margin-bottom: 15px;text-align: center;">
-          <div> <a href="" routerLink="/app-billing" style="color: #fff;"> Full Report</a> </div>
-         
-        </div> 
-      </div>
-    </div>
-  
-    <div class="col-sm-6 col-lg-4">
-      <div class="card text-white bg-primary">
-        <div class="card-body pb-0" style="height:228px;overflow-y: scroll;">
-          <div class="btn-group float-right">
-            <div> 09/06/17  10:53 AM</div>
-          </div>
-          <div class="text-value">Payroll</div>
-          <hr style="margin-bottom: 0px;">
-        
-          <div class="row">
-              <span class="col-md-8"> Null PayGroup </span>
-              <span class="col-md-2"> {{(resultData && resultData['Null PayGroup']) ? resultData['Null PayGroup'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Null PayGroup'] && resultData['Null PayGroup'].length)" > 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Null PayGroup'] && resultData['Null PayGroup'].length)"> 
-                <img src="assets/img/green-icon.png"> 
-              </span>
-          </div>
-      
-          <div class="row">
-              <span class="col-md-8"> Payroll Processing </span>
-              <span class="col-md-2"> {{(resultData && resultData['Payroll Processing Validation']) ? resultData['Payroll Processing Validation'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Payroll Processing Validation'] && resultData['Payroll Processing Validation'].length)" > 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Payroll Processing Validation'] && resultData['Payroll Processing Validation'].length)"> 
-                <img src="assets/img/green-icon.png"> 
-              </span>
-          </div>
-     
-          <div class="row">
-              <span class="col-md-8"> Missing Rate Card </span>
-              <span class="col-md-2"> {{(resultData && resultData['Missing Rate Card']) ? resultData['Missing Rate Card'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Missing Rate Card'] && resultData['Missing Rate Card'].length)" > 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Missing Rate Card'] && resultData['Missing Rate Card'].length)" > 
-                <img src="assets/img/green-icon.png"> 
-              </span>
-          </div>
-         
-          <div class="row">
-              <span class="col-md-8"> Duplicate Absence </span>
-              <span class="col-md-2"> {{(resultData && resultData['Duplicate Absence']) ? resultData['Duplicate Absence'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Duplicate Absence'] && resultData['Duplicate Absence'].length)"> 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Duplicate Absence'] && resultData['Duplicate Absence'].length)"> 
-                <img src="assets/img/green-icon.png"> 
-              </span>
-          </div>
-  
-          <div class="row">
-              <span class="col-md-8"> Missing Shift </span>
-              <span class="col-md-2"> {{(resultData && resultData['Missing Shift']) ? resultData['Missing Shift'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Missing Shift'] && resultData['Missing Shift'].length)"> <
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Missing Shift'] && resultData['Missing Shift'].length)"> 
-                <img src="assets/img/green-icon.png"> 
-              </span>
-          </div>
-        
-          <div class="row">
-              <span class="col-md-8"> Missing PayGroup </span>
-              <span class="col-md-2"> {{(resultData && resultData['Missing PayGroup']) ? resultData['Missing PayGroup'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Missing PayGroup'] && resultData['Missing PayGroup'].length)" >
-                 <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Missing PayGroup'] && resultData['Missing PayGroup'].length)" > 
-                <img src="assets/img/green-icon.png"> 
-              </span>
-          </div>
-    
-          <div class="row">
-              <span class="col-md-8"> Employee without PayGroup </span>
-              <span class="col-md-2"> {{(resultData && resultData['Employee without PayGroup']) ? resultData['Employee without PayGroup'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Employee without PayGroup'] && resultData['Employee without PayGroup'].length)" > 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Employee without PayGroup'] && resultData['Employee without PayGroup'].length)"> 
-                <img src="assets/img/green-icon.png"> 
-              </span>
-          </div>
-     
-          <div class="row"> 
-              <span class="col-md-8"> Missing Salary History </span>
-              <span class="col-md-2"> {{(resultData && resultData['Missing Salary History']) ? resultData['Missing Salary History'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Missing Salary History'] && resultData['Missing Salary History'].length)" > 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Missing Salary History'] && resultData['Missing Salary History'].length)" > 
-              <img src="assets/img/green-icon.png"> </span>
-          </div>
-    
-          <div class="row">
-              <span class="col-md-8"> Duplicate Rate Card </span>
-              <span class="col-md-2"> {{(resultData && resultData['Duplicate Rate Card']) ? resultData['Duplicate Rate Card'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Duplicate Rate Card'] && resultData['Duplicate Rate Card'].length)" > 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Duplicate Rate Card'] && resultData['Duplicate Rate Card'].length)" > 
-              <img src="assets/img/green-icon.png"> </span>
-          </div>
-      
-          <div class="row">
-              <span class="col-md-8"> Missing Start Date </span>
-              <span class="col-md-2"> {{(resultData && resultData['Missing Start Date']) ? resultData['Missing Start Date'].length : ''}}</span>
-              <span class="col-md-2" *ngIf="(resultData && resultData['Missing Start Date'] && resultData['Missing Start Date'].length)"> 
-                <img src="assets/img/red-icon.png" class="heart">
-              </span>
-              <span class="col-md-2" *ngIf="!(resultData && resultData['Missing Start Date'] && resultData['Missing Start Date'].length)"> 
-              <img src="assets/img/green-icon.png"> </span>
-          </div>
-        </div>
-        <hr style="margin-bottom: 0px;">
-        <div class="chart-wrapper mt-3 mx-3" style="height: 28px;background-color: red;margin-bottom: 15px;text-align: center;">
-          <div> <a href="" routerLink="/app-payroll" style="color: #fff;"> Full Report</a> </div>
-        </div>  
-      </div>
-    </div> 
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2007)">2007</button> </div>
+      </div> <br/>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2008)">2008</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2009)">2009</button> </div>
+      </div><br/>
 
-  
-          <!--
-          <div class="btn-group float-right">
-              <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="icon-settings"></i> 
-              </button>
-              
-              <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div> 
-          </div> 
-        </div> 
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2010)">2010</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2011)">2011</button> </div>
+      </div> <br/>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2012)">2012</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2013)">2013</button> </div>
+      </div> <br/>
+
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2014)">2014</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2015)">2015</button> </div>
+      </div> <br/>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2016)">2016</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2017)">2017</button> </div>
+      </div> <br/>
+
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2018)">2018</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2019)">2019</button> </div>
+      </div> <br/>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2020)">2020</button> </div>
+        <div class="col-md-6"> </div>
+      </div> <br/>
+      
+      <p> Successfull Launch </p> <hr>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyLauchFilter(true)"> True </button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyLauchFilter(false)"> False </button> </div>
+      </div> <br/>
+
+      <p> Successfull Landing </p> <hr>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyLandFilter(true)"> True </button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyLandFilter(false)"> False </button> </div>
       </div>
-    </div> 
-  </div><!--/.row-->
+    </mat-card>
+   
+    <div class="col-md-10" >
+      <div class="row" id="customRow">
+      <mat-card *ngFor="let result of resultData" class="col-md-2" id="customMatCard">
+        
+        <img mat-card-image src="{{result['links']['mission_patch_small']}}" >
+        <mat-card-content>
+          <span> <b>FalconSat # </b> {{result['flight_number']}} </span> <br/>
+          <span> <b>Mission ids:</b> {{result['mission_id']}} </span> <br/>
+          <span> <b>Launch Year:</b> {{result['launch_year']}} </span> <br/>
+          <span> <b>Success Launch:</b> {{result['launch_success']}} </span> <br/>
+          <span> <b>Success Landing:</b> {{result['rocket']['first_stage']['cores'][0]['land_success']}} </span> <br/>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+    </div>
+</div>
 </div>
