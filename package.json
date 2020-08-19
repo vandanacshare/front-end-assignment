@@ -1,5 +1,5 @@
 {
-  "name": "@coreui/coreui-free-angular-admin-template",
+  "name": "frontend-assignment",
   "version": "2.5.1",
   "description": "CoreUI Free Angular 2+ Admin Template",
   "author": {
@@ -19,7 +19,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --prod --aot --buildOptimizer --commonChunk --vendorChunk --optimization --progress",
     "build-qa": "ng build --configuration=qa --aot --buildOptimizer --commonChunk --vendorChunk --optimization --progress",
     "test": "ng test",
@@ -46,6 +46,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "core-js": "^2.6.9",
+    "express": "^4.17.1",
     "flag-icon-css": "^3.3.0",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
