@@ -11,20 +11,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 import { AppComponent } from './app.component';
-
-// Import containers
-import { DefaultLayoutComponent } from './containers';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 
-const APP_CONTAINERS = [
-  DefaultLayoutComponent
-];
-
 import {
   AppAsideModule,
-  AppBreadcrumbModule,
   AppHeaderModule,
   AppFooterModule,
   AppSidebarModule,
@@ -34,9 +25,8 @@ import {
 import { AppRoutingModule } from './app.routing';
 
 // Import 3rd party components
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { DefaultLayoutModule } from '../app/containers/default-layout/default-layout.module';
 
 @NgModule({
   imports: [
@@ -44,18 +34,15 @@ import { ChartsModule } from 'ng2-charts';
     BrowserAnimationsModule,
     AppRoutingModule,
     AppAsideModule,
-    AppBreadcrumbModule.forRoot(),
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,
     PerfectScrollbarModule,
-    BsDropdownModule.forRoot(),
-    TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    DefaultLayoutModule
   ],
   declarations: [
     AppComponent,
-    ...APP_CONTAINERS,
     P404Component,
     P500Component
   ],
@@ -64,5 +51,6 @@ import { ChartsModule } from 'ng2-charts';
     useClass: HashLocationStrategy
   }],
   bootstrap: [ AppComponent ]
+  
 })
 export class AppModule { }
