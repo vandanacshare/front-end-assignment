@@ -1,0 +1,23 @@
+.app-body{
+
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow-x: hidden;
+  padding-left: 80px;
+}
+
+.p {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+.col-md-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+}
+}
+
+h3 {
+  padding-left:16px;
+}

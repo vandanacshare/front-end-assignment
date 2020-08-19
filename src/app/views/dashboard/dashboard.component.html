@@ -1,0 +1,77 @@
+<i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+<div class="animated fadeIn">
+  
+  <div class="row">
+
+    <!--/.col-->
+    <mat-card class="col-md-2"> 
+      <p> Launch Year </p> <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <button mat-raised-button color="warn" (click)="applyYearFilter(2006)"> 2006 </button>
+        </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2007)">2007</button> </div>
+      </div> <br/>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2008)">2008</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2009)">2009</button> </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2010)">2010</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2011)">2011</button> </div>
+      </div> <br/>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2012)">2012</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2013)">2013</button> </div>
+      </div> <br/>
+
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2014)">2014</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2015)">2015</button> </div>
+      </div> <br/>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2016)">2016</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2017)">2017</button> </div>
+      </div> <br/>
+
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2018)">2018</button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2019)">2019</button> </div>
+      </div> <br/>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyYearFilter(2020)">2020</button> </div>
+        <div class="col-md-6"> </div>
+      </div> <br/>
+      
+      <p> Successfull Launch </p> <hr>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyLauchFilter(true)"> True </button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyLauchFilter(false)"> False </button> </div>
+      </div> <br/>
+
+      <p> Successfull Landing </p> <hr>
+      <div class="row">
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyLandFilter(true)"> True </button> </div>
+        <div class="col-md-6"> <button mat-raised-button color="warn" (click)="applyLandFilter(false)"> False </button> </div>
+      </div>
+    </mat-card>
+   
+    <div class="col-md-10" >
+      <div class="row" id="customRow">
+      <mat-card *ngFor="let result of resultData" class="col-md-2" id="customMatCard">
+        
+        <img mat-card-image src="{{result['links']['mission_patch_small']}}" >
+        <mat-card-content>
+          <span> <b>FalconSat # </b> {{result['flight_number']}} </span> <br/>
+          <span> <b>Mission ids:</b> {{result['mission_id']}} </span> <br/>
+          <span> <b>Launch Year:</b> {{result['launch_year']}} </span> <br/>
+          <span> <b>Success Launch:</b> {{result['launch_success']}} </span> <br/>
+          <span> <b>Success Landing:</b> {{result['rocket']['first_stage']['cores'][0]['land_success']}} </span> <br/>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+    </div>
+</div>
+</div>
